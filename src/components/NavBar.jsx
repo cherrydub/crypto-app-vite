@@ -1,17 +1,30 @@
 import React from "react";
 
 import { Link } from "react-router-dom";
+import { Toggle } from "./Toggle";
 
-export const NavBar = () => {
+export const NavBar = ({ switchTheme, theme, setDisplayAmount }) => {
   return (
-    <Link to="/">
-      <div className="navbar flex text-center justify-center pt-3">
-        <i
-          className="fas fa-brands fa-bitcoin btc-logo"
-          // style={{ color: "var(--text-secondary)", hover: "var(--link)" }}
-        ></i>
-        itcoin will set you free
+    <div className="flex fixed top-0 left-0 right-0 navbar">
+      <div className="flex-grow text-left"></div>
+      <div className="flex-grow text-center">
+        <Link to="/">
+          <div className="flex text-center justify-center pt-3 font-bold">
+            <i
+              className="fas fa-brands fa-bitcoin btc-logo"
+              // style={{ color: "var(--text-secondary)", hover: "var(--link)" }}
+            ></i>
+            itcoin will set you free
+          </div>
+        </Link>
       </div>
-    </Link>
+      <div className="flex-grow text-right">
+        <Toggle
+          switchTheme={switchTheme}
+          theme={theme}
+          setDisplayAmount={setDisplayAmount}
+        />
+      </div>
+    </div>
   );
 };

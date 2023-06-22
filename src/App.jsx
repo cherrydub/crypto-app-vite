@@ -12,6 +12,7 @@ import { Footer } from "./components/Footer";
 function App() {
   const [theme, setTheme] = useLocalStorage("theme" ? "dark" : "light");
   const [displayAmount, setDisplayAmount] = useState(10);
+  const [currency, setCurrency] = useState("usd");
 
   const switchTheme = () => {
     const newTheme = theme === "light" ? "dark" : "light";
@@ -36,16 +37,27 @@ function App() {
 
   return (
     <div className="app" id="top" data-theme={theme}>
-      <NavBar />
-      <Toggle
+      <NavBar
         switchTheme={switchTheme}
         theme={theme}
         setDisplayAmount={setDisplayAmount}
       />
+      {/* <Toggle
+        switchTheme={switchTheme}
+        theme={theme}
+        setDisplayAmount={setDisplayAmount}
+      /> */}
       <Routes>
         <Route
           path="/"
-          element={<Coins setDisplayAmount={setDisplayAmount} coins={coins} />}
+          element={
+            <Coins
+              setDisplayAmount={setDisplayAmount}
+              coins={coins}
+              currency={currency}
+              setCurrency={setCurrency}
+            />
+          }
         />
         <Route path="/coin" element={<Coin />}>
           <Route path=":coinId" element={<Coin />} />

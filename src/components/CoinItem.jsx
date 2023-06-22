@@ -1,7 +1,7 @@
 import React from "react";
 // import "./Coins.css";
 
-export const CoinItem = ({ coin }) => {
+export const CoinItem = ({ coin, currency, setCurrency }) => {
   return (
     <div className="coin-row" title={coin.name}>
       <p>{coin.market_cap_rank}</p>

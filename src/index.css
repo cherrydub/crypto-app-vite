@@ -11,6 +11,7 @@
   --accent2: #eee;
   --border: rgb(250 250 250 / 0.85);
   --table: rgb(29 31 33 / 0.85);
+  --nav-background: rgb(29 31 33 / 0.85);
 
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -36,6 +37,7 @@
   --accent2: #111;
   --border: grey;
   --table: white;
+  --nav-background: rgb(250 250 250 / 0.85);
 }
 
 * {
@@ -136,4 +138,11 @@ button:focus-visible {
 
 .btc-logo {
   line-height: 1.4rem;
+}
+
+.navbar {
+  /* background-color: var(--background); */
+  background-color: var(--nav-background);
+  /* border-bottom: 1px solid var(--border); */
+  backdrop-filter: blur(20px);
 }

@@ -4,10 +4,10 @@ import "./Coins.css";
 import { Link } from "react-router-dom";
 import { Coin } from "../routes/Coin";
 
-export const Coins = ({ coins, setDisplayAmount }) => {
+export const Coins = ({ coins, setDisplayAmount, currency, setCurrency }) => {
   return (
     <>
-      <div className="text-right px-4">
+      <div className="text-right px-4 pt-10">
         <button className="" onClick={() => setDisplayAmount(10)}>
           10
         </button>
@@ -27,11 +27,16 @@ export const Coins = ({ coins, setDisplayAmount }) => {
         {coins.map((coin) => {
           return (
             <Link to={`/coin/${coin.id}`} element={<Coin />} key={coin.id}>
-              <CoinItem coin={coin} />
+              <CoinItem
+                coin={coin}
+                currency={currency}
+                setCurrency={setCurrency}
+              />
             </Link>
           );
         })}
       </div>
+      <div className="bottom-0 text-center">...</div>
     </>
   );
 };

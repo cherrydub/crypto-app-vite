@@ -9,6 +9,13 @@ export const Coin = () => {
   const [coin, setCoin] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [currency, setCurrency] = useState("usd");
+
+  const currencySymbol = {
+    usd: "$",
+    gbp: "£",
+    eur: "€",
+  };
 
   const url = `https://api.coingecko.com/api/v3/coins/${params.coinId}`;
 
@@ -23,7 +30,7 @@ export const Coin = () => {
         setError(err);
         setLoading(false);
       });
-  }, []);
+  }, [currency]);
 
   if (loading) {
     return <div>Loading...</div>;
@@ -34,22 +41,61 @@ export const Coin = () => {
   }
 
   return (
-    <div className="coin-container">
-      <div className="content">
+    <div className="coin-container pt-12">
+      {/* <div className="content">
         <h1>{coin.name}</h1>
-      </div>
+      </div> */}
       <div className="content">
-        <div className="rank">
-          <span className="rank-btn">Rank # {coin.market_cap_rank}</span>
+        <div className="rank flex">
+          <div className="rank-btn">Rank # {coin.market_cap_rank}</div>
+          <div className=" flex-grow text-right">
+            {currency === "usd" ? (
+              <button
+                className="bg-black text-white"
+                onClick={() => setCurrency("usd")}
+              >
+                usd
+              </button>
+            ) : (
+              <button onClick={() => setCurrency("usd")}>usd</button>
+            )}
+
+            {currency === "gbp" ? (
+              <button
+                className="bg-black text-white"
+                onClick={() => setCurrency("gbp")}
+              >
+                gbp
+              </button>
+            ) : (
+              <button onClick={() => setCurrency("gbp")}>gbp</button>
+            )}
+
+            {currency === "eur" ? (
+              <button
+                className="bg-black text-white"
+                onClick={() => setCurrency("eur")}
+              >
+                eur
+              </button>
+            ) : (
+              <button onClick={() => setCurrency("eur")}>eur</button>
+            )}
+          </div>
         </div>
-        <div className="info">
+
+        <div className="info font-bold">
           <div className="coin-heading">
             {coin.image?.small && <img src={coin.image.small} alt="" />}
             <p>{coin.name}</p>
             <p>{coin.symbol.toUpperCase()}</p>
           </div>
           <div className="coin-price">
-            <h1>${coin.market_data?.current_price?.usd ?? "N/A"}</h1>
+            <h1>
+              {currencySymbol[currency]}
+              {coin.market_data?.current_price?.[currency].toLocaleString() ??
+                "N/A"}
+            </h1>
           </div>
         </div>
       </div>
@@ -68,39 +114,39 @@ export const Coin = () => {
           <tbody>
             <tr>
               <td>
-                {coin.market_data?.price_change_percentage_1h_in_currency?.usd.toFixed(
-                  1
-                ) ?? "N/A"}
+                {coin.market_data?.price_change_percentage_1h_in_currency?.[
+                  currency
+                ].toFixed(1) ?? "N/A"}
                 %
               </td>
               <td>
-                {coin.market_data?.price_change_percentage_24h_in_currency?.usd.toFixed(
-                  1
-                ) ?? "N/A"}
+                {coin.market_data?.price_change_percentage_24h_in_currency?.[
+                  currency
+                ].toFixed(1) ?? "N/A"}
                 %
               </td>
               <td>
-                {coin.market_data?.price_change_percentage_7d_in_currency?.usd.toFixed(
-                  1
-                ) ?? "N/A"}
+                {coin.market_data?.price_change_percentage_7d_in_currency?.[
+                  currency
+                ].toFixed(1) ?? "N/A"}
                 %
               </td>
               <td>
-                {coin.market_data?.price_change_percentage_14d_in_currency?.usd.toFixed(
-                  1
-                ) ?? "N/A"}
+                {coin.market_data?.price_change_percentage_14d_in_currency?.[
+                  currency
+                ].toFixed(1) ?? "N/A"}
                 %
               </td>
               <td>
-                {coin.market_data?.price_change_percentage_30d_in_currency?.usd.toFixed(
-                  1
-                ) ?? "N/A"}
+                {coin.market_data?.price_change_percentage_30d_in_currency?.[
+                  currency
+                ].toFixed(1) ?? "N/A"}
                 %
               </td>
               <td>
-                {coin.market_data?.price_change_percentage_1y_in_currency?.usd.toFixed(
-                  1
-                ) ?? "N/A"}
+                {coin.market_data?.price_change_percentage_1y_in_currency?.[
+                  currency
+                ].toFixed(1) ?? "N/A"}
                 %
               </td>
             </tr>
@@ -112,12 +158,18 @@ export const Coin = () => {
           <div className="left">
             <div className="row">
               <h4>24 Hour Low</h4>
-              <p>${coin.market_data?.low_24h?.usd.toLocaleString() ?? "N/A"}</p>
+              <p>
+                {currencySymbol[currency]}
+                {coin.market_data?.low_24h?.[currency].toLocaleString() ??
+                  "N/A"}
+              </p>
             </div>
             <div className="row">
               <h4>24 Hour High</h4>
               <p>
-                ${coin.market_data?.high_24h?.usd.toLocaleString() ?? "N/A"}
+                {currencySymbol[currency]}
+                {coin.market_data?.high_24h?.[currency].toLocaleString() ??
+                  "N/A"}
               </p>
             </div>
           </div>
@@ -125,7 +177,9 @@ export const Coin = () => {
             <div className="row">
               <h4>Market Cap</h4>
               <p>
-                ${coin.market_data?.market_cap?.usd.toLocaleString() ?? "N/A"}
+                {currencySymbol[currency]}
+                {coin.market_data?.market_cap?.[currency].toLocaleString() ??
+                  "N/A"}
               </p>
             </div>
             <div className="row">
@@ -140,6 +194,7 @@ export const Coin = () => {
       <div className="content">
         <div className="about">
           <h3>About</h3>
+
           <p
             dangerouslySetInnerHTML={{
               __html: DOMPurify.sanitize(coin.description?.en ?? "N/A"),
@@ -147,6 +202,7 @@ export const Coin = () => {
           ></p>
         </div>
       </div>
+      <div className="bottom-0 text-center">...</div>
     </div>
   );
 };
