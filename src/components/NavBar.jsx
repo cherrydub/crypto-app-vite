@@ -8,7 +8,7 @@ export const NavBar = () => {
       <div className="navbar flex text-center justify-center pt-3">
         <i
           className="fas fa-brands fa-bitcoin btc-logo"
-          style={{ color: "var(--text-secondary)" }}
+          // style={{ color: "var(--text-secondary)", hover: "var(--link)" }}
         ></i>
         itcoin will set you free
       </div>
