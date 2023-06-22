@@ -113,42 +113,108 @@ export const Coin = () => {
           </thead>
           <tbody>
             <tr>
-              <td>
-                {coin.market_data?.price_change_percentage_1h_in_currency?.[
-                  currency
-                ].toFixed(1) ?? "N/A"}
-                %
-              </td>
-              <td>
-                {coin.market_data?.price_change_percentage_24h_in_currency?.[
-                  currency
-                ].toFixed(1) ?? "N/A"}
-                %
-              </td>
-              <td>
-                {coin.market_data?.price_change_percentage_7d_in_currency?.[
-                  currency
-                ].toFixed(1) ?? "N/A"}
-                %
-              </td>
-              <td>
-                {coin.market_data?.price_change_percentage_14d_in_currency?.[
-                  currency
-                ].toFixed(1) ?? "N/A"}
-                %
-              </td>
-              <td>
-                {coin.market_data?.price_change_percentage_30d_in_currency?.[
-                  currency
-                ].toFixed(1) ?? "N/A"}
-                %
-              </td>
-              <td>
-                {coin.market_data?.price_change_percentage_1y_in_currency?.[
-                  currency
-                ].toFixed(1) ?? "N/A"}
-                %
-              </td>
+              {coin.market_data?.price_change_percentage_1h_in_currency?.[
+                currency
+              ].toFixed(1) > 0 ? (
+                <td className="text-green-500">
+                  {coin.market_data?.price_change_percentage_1h_in_currency?.[
+                    currency
+                  ].toFixed(1)}
+                  %
+                </td>
+              ) : (
+                <td className="text-red-500">
+                  {coin.market_data?.price_change_percentage_1h_in_currency?.[
+                    currency
+                  ].toFixed(1)}
+                  %
+                </td>
+              )}
+              {coin.market_data?.price_change_percentage_24h_in_currency?.[
+                currency
+              ].toFixed(1) > 0 ? (
+                <td className="text-green-500">
+                  {coin.market_data?.price_change_percentage_24h_in_currency?.[
+                    currency
+                  ].toFixed(1)}
+                  %
+                </td>
+              ) : (
+                <td className="text-red-500">
+                  {coin.market_data?.price_change_percentage_24h_in_currency?.[
+                    currency
+                  ].toFixed(1)}
+                  %
+                </td>
+              )}
+              {coin.market_data?.price_change_percentage_7d_in_currency?.[
+                currency
+              ].toFixed(1) > 0 ? (
+                <td className="text-green-500">
+                  {coin.market_data?.price_change_percentage_7d_in_currency?.[
+                    currency
+                  ].toFixed(1)}
+                  %
+                </td>
+              ) : (
+                <td className="text-red-500">
+                  {coin.market_data?.price_change_percentage_7d_in_currency?.[
+                    currency
+                  ].toFixed(1)}
+                  %
+                </td>
+              )}
+              {coin.market_data?.price_change_percentage_14d_in_currency?.[
+                currency
+              ].toFixed(1) > 0 ? (
+                <td className="text-green-500">
+                  {coin.market_data?.price_change_percentage_14d_in_currency?.[
+                    currency
+                  ].toFixed(1)}
+                  %
+                </td>
+              ) : (
+                <td className="text-red-500">
+                  {coin.market_data?.price_change_percentage_14d_in_currency?.[
+                    currency
+                  ].toFixed(1)}
+                  %
+                </td>
+              )}
+              {coin.market_data?.price_change_percentage_30d_in_currency?.[
+                currency
+              ].toFixed(1) > 0 ? (
+                <td className="text-green-500">
+                  {coin.market_data?.price_change_percentage_30d_in_currency?.[
+                    currency
+                  ].toFixed(1)}
+                  %
+                </td>
+              ) : (
+                <td className="text-red-500">
+                  {coin.market_data?.price_change_percentage_30d_in_currency?.[
+                    currency
+                  ].toFixed(1)}
+                  %
+                </td>
+              )}
+              {coin.market_data?.price_change_percentage_1y_in_currency?.[
+                currency
+              ].toFixed(1) > 0 ? (
+                <td className="text-green-500">
+                  {coin.market_data?.price_change_percentage_1y_in_currency?.[
+                    currency
+                  ].toFixed(1)}
+                  %
+                </td>
+              ) : (
+                <td className="text-red-500">
+                  {coin.market_data?.price_change_percentage_1y_in_currency?.[
+                    currency
+                  ].toFixed(1)}
+                  %
+                </td>
+              )}
             </tr>
           </tbody>
         </table>
@@ -157,7 +223,7 @@ export const Coin = () => {
         <div className="stats">
           <div className="left">
             <div className="row">
-              <h4>24 Hour Low</h4>
+              <h4 className="font-bold">24 Hour Low</h4>
               <p>
                 {currencySymbol[currency]}
                 {coin.market_data?.low_24h?.[currency].toLocaleString() ??
@@ -165,7 +231,7 @@ export const Coin = () => {
               </p>
             </div>
             <div className="row">
-              <h4>24 Hour High</h4>
+              <h4 className="font-bold">24 Hour High</h4>
               <p>
                 {currencySymbol[currency]}
                 {coin.market_data?.high_24h?.[currency].toLocaleString() ??
@@ -175,7 +241,7 @@ export const Coin = () => {
           </div>
           <div className="right">
             <div className="row">
-              <h4>Market Cap</h4>
+              <h4 className="font-bold">Market Cap</h4>
               <p>
                 {currencySymbol[currency]}
                 {coin.market_data?.market_cap?.[currency].toLocaleString() ??
@@ -183,7 +249,7 @@ export const Coin = () => {
               </p>
             </div>
             <div className="row">
-              <h4>Circulating Supply</h4>
+              <h4 className="font-bold">Circulating Supply</h4>
               <p>
                 {coin.market_data?.circulating_supply.toLocaleString() ?? "N/A"}
               </p>
@@ -193,7 +259,7 @@ export const Coin = () => {
       </div>
       <div className="content">
         <div className="about">
-          <h3>About</h3>
+          <h3 className="font-bold">About</h3>
 
           <p
             dangerouslySetInnerHTML={{
