@@ -7,6 +7,7 @@ import { NavBar } from "./components/NavBar";
 import { Coin } from "./routes/Coin";
 import useLocalStorage from "use-local-storage";
 import { Toggle } from "./components/Toggle";
+import { Footer } from "./components/Footer";
 
 function App() {
   const [theme, setTheme] = useLocalStorage("theme" ? "dark" : "light");
@@ -34,7 +35,7 @@ function App() {
   }, [displayAmount]);
 
   return (
-    <div className="app" data-theme={theme}>
+    <div className="app" id="top" data-theme={theme}>
       <NavBar />
       <Toggle
         switchTheme={switchTheme}
@@ -42,11 +43,15 @@ function App() {
         setDisplayAmount={setDisplayAmount}
       />
       <Routes>
-        <Route path="/" element={<Coins coins={coins} />} />
+        <Route
+          path="/"
+          element={<Coins setDisplayAmount={setDisplayAmount} coins={coins} />}
+        />
         <Route path="/coin" element={<Coin />}>
           <Route path=":coinId" element={<Coin />} />
         </Route>
       </Routes>
+      <Footer />
     </div>
   );
 }

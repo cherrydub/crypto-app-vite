@@ -4,9 +4,14 @@ import "./Coins.css";
 import { Link } from "react-router-dom";
 import { Coin } from "../routes/Coin";
 
-export const Coins = ({ coins }) => {
+export const Coins = ({ coins, setDisplayAmount }) => {
   return (
     <div className="container">
+      <button className="m-x-2" onClick={() => setDisplayAmount(10)}>
+        10
+      </button>
+      <button onClick={() => setDisplayAmount(25)}>25</button>
+      <button onClick={() => setDisplayAmount(100)}>100</button>
       <div className="heading">
         <p>#</p>
         <p className="coin-name">Coin</p>
