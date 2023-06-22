@@ -133,3 +133,7 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 } */
+
+.btc-logo {
+  line-height: 1.4rem;
+}
