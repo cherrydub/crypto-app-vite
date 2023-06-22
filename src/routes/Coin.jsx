@@ -41,7 +41,7 @@ export const Coin = () => {
   }
 
   return (
-    <div className="coin-container pt-12">
+    <div className="coin-container pt-12 coin">
       {/* <div className="content">
         <h1>{coin.name}</h1>
       </div> */}
@@ -262,6 +262,7 @@ export const Coin = () => {
           <h3 className="font-bold">About</h3>
 
           <p
+            className="text-secondary"
             dangerouslySetInnerHTML={{
               __html: DOMPurify.sanitize(coin.description?.en ?? "N/A"),
             }}

@@ -4,12 +4,14 @@ import React from "react";
 export const CoinItem = ({ coin, currency, setCurrency }) => {
   return (
     <div className="coin-row" title={coin.name}>
-      <p>{coin.market_cap_rank}</p>
+      <p className="text-primary">{coin.market_cap_rank}</p>
       <div className="img-symbol">
         <img className="" src={coin.image} alt={coin.name} />
-        <p>{coin.symbol.toUpperCase()}</p>
+        <p className="font-bold" style={{ color: "var(--text-primary)" }}>
+          {coin.symbol.toUpperCase()}
+        </p>
       </div>
-      <p>${coin.current_price.toLocaleString()}</p>
+      <p className="text-secondary">${coin.current_price.toLocaleString()}</p>
 
       {coin.price_change_percentage_24h > 0 ? (
         <p className="text-green-500">
@@ -21,8 +23,12 @@ export const CoinItem = ({ coin, currency, setCurrency }) => {
         </p>
       )}
 
-      <p className="hide-mobile">${coin.total_volume.toLocaleString()}</p>
-      <p className="hide-mobile">${coin.market_cap.toLocaleString()}</p>
+      <p className="hide-mobile text-secondary">
+        ${coin.total_volume.toLocaleString()}
+      </p>
+      <p className="hide-mobile text-secondary">
+        ${coin.market_cap.toLocaleString()}
+      </p>
     </div>
   );
 };

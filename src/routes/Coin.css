@@ -14,9 +14,9 @@
 }
 
 .rank-btn {
-  border: 1px solid #6900ff;
-  box-shadow: 0px 0px 8px #6900ff;
-  background-color: #6900ff;
+  border: 1px solid var(--accent);
+  box-shadow: 0px 0px 8px var(--accent);
+  background-color: var(--accent);
   border-radius: 8px;
   padding: 0.2rem;
 }
@@ -104,4 +104,9 @@ th {
   .rank-btn {
     margin: 0.5rem 0;
   }
+}
+
+.coin a:hover {
+  color: var(--accent);
+  text-decoration: underline;
 }

@@ -6,8 +6,8 @@
   --background: #1d1f21;
   --text-primary: #eee;
   --text-secondary: #c9cacc;
-  --link: #d480aa;
-  --accent: #2bbc89;
+  --link: #6900ff;
+  --accent: #6900ff;
   --accent2: #eee;
   --border: rgb(250 250 250 / 0.85);
   --table: rgb(29 31 33 / 0.85);
@@ -31,9 +31,9 @@
 [data-theme="light"] {
   --background: #fafafa;
   --text-primary: black;
-  --text-secondary: #242424;
-  --link: #567c77;
-  --accent: #cc2a42;
+  --text-secondary: rgb(98, 98, 98);
+  --link: orange;
+  --accent: orange;
   --accent2: #111;
   --border: grey;
   --table: white;
@@ -50,14 +50,6 @@ button {
   border: 1px solid var(--border);
   padding: 2px;
   line-height: 1rem;
-}
-
-a {
-  color: var(--text-secondary);
-}
-
-a:hover {
-  color: var(--accent);
 }
 
 button:hover {
@@ -145,4 +137,51 @@ button:focus-visible {
   background-color: var(--nav-background);
   /* border-bottom: 1px solid var(--border); */
   backdrop-filter: blur(20px);
+}
+
+/* :root {
+  --background: #1d1f21;
+  --text-primary: #eee;
+  --text-secondary: #c9cacc;
+  --link: #d480aa;
+  --accent: #2bbc89;
+  --accent2: #eee;
+  --border: rgb(250 250 250 / 0.85);
+  --table: rgb(29 31 33 / 0.85);
+  --nav-background: rgb(29 31 33 / 0.85);
+
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+
+}
+
+[data-theme="light"] {
+  --background: #fafafa;
+  --text-primary: black;
+  --text-secondary: #242424;
+  --link: #567c77;
+  --accent: #cc2a42;
+  --accent2: #111;
+  --border: grey;
+  --table: white;
+  --nav-background: rgb(250 250 250 / 0.85);
+} */
+
+a {
+  color: var(--link);
+}
+
+a:hover {
+  color: var(--accent);
+  /* text-decoration: underline; */
+}
+
+.text-primary {
+  color: var(--text-primary);
+}
+
+.text-secondary {
+  color: var(--text-secondary);
 }
