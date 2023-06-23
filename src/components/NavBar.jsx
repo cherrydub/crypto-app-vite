@@ -9,7 +9,7 @@ export const NavBar = ({ switchTheme, theme, setDisplayAmount }) => {
       <div className="flex-grow text-left"></div>
       <div className="flex-grow text-center">
         <Link to="/">
-          <div className="flex text-center justify-center pt-1 font-bold">
+          <div className="flex text-center justify-center font-bold">
             <i
               className="fas fa-brands fa-bitcoin btc-logo"
               // style={{ color: "var(--text-secondary)", hover: "var(--link)" }}
