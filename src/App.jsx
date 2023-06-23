@@ -12,6 +12,7 @@ function App() {
   const [theme, setTheme] = useLocalStorage("theme" ? "dark" : "light");
   const [displayAmount, setDisplayAmount] = useState(10);
   const [currency, setCurrency] = useState("usd");
+  const [orderSort, setOrderSort] = useState("desc");
 
   const currencySymbol = {
     usd: "$",
@@ -26,7 +27,7 @@ function App() {
 
   const [coins, setCoins] = useState([]);
 
-  const url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}&order=market_cap_desc&per_page=${displayAmount}&page=1&sparkline=false&locale=en`;
+  const url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}&order=market_cap_${orderSort}&per_page=${displayAmount}&page=1&sparkline=false&locale=en`;
 
   useEffect(() => {
     axios
@@ -61,6 +62,7 @@ function App() {
               coins={coins}
               currency={currency}
               setCurrency={setCurrency}
+              displayAmount={displayAmount}
             />
           }
         />

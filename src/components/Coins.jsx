@@ -4,46 +4,56 @@ import "./Coins.css";
 import { Link } from "react-router-dom";
 import { Coin } from "../routes/Coin";
 
-export const Coins = ({ coins, setDisplayAmount, currency, setCurrency }) => {
+export const Coins = ({
+  coins,
+  setDisplayAmount,
+  currency,
+  setCurrency,
+  displayAmount,
+}) => {
   return (
     <>
       <div className="text-right px-4 pt-10">
         {currency === "usd" ? (
-          <button
-            className="currency-choice"
-            onClick={() => setCurrency("usd")}
-          >
-            usd
-          </button>
+          <button className="currency-choice">usd</button>
         ) : (
           <button onClick={() => setCurrency("usd")}>usd</button>
         )}
         {currency === "gbp" ? (
-          <button
-            className="currency-choice"
-            onClick={() => setCurrency("gbp")}
-          >
-            gbp
-          </button>
+          <button className="currency-choice">gbp</button>
         ) : (
           <button onClick={() => setCurrency("gbp")}>gbp</button>
         )}
         {currency === "eur" ? (
-          <button
-            className="currency-choice"
-            onClick={() => setCurrency("eur")}
-          >
-            eur
-          </button>
+          <button className="currency-choice">eur</button>
         ) : (
           <button onClick={() => setCurrency("eur")}>eur</button>
         )}
         {"   "}
-        <button className="" onClick={() => setDisplayAmount(10)}>
-          10
-        </button>
-        <button onClick={() => setDisplayAmount(25)}>25</button>
-        <button onClick={() => setDisplayAmount(100)}>100</button>
+
+        {displayAmount === 10 ? (
+          <button className="currency-choice">10</button>
+        ) : (
+          <button className="" onClick={() => setDisplayAmount(10)}>
+            10
+          </button>
+        )}
+
+        {displayAmount === 25 ? (
+          <button className="currency-choice">25</button>
+        ) : (
+          <button className="" onClick={() => setDisplayAmount(25)}>
+            25
+          </button>
+        )}
+
+        {displayAmount === 100 ? (
+          <button className="currency-choice">100</button>
+        ) : (
+          <button className="" onClick={() => setDisplayAmount(100)}>
+            100
+          </button>
+        )}
       </div>
 
       <div className="container">
