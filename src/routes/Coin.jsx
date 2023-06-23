@@ -51,7 +51,7 @@ export const Coin = () => {
           <div className=" flex-grow text-right">
             {currency === "usd" ? (
               <button
-                className="bg-black text-white"
+                className="currency-choice"
                 onClick={() => setCurrency("usd")}
               >
                 usd

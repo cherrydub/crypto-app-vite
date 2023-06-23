@@ -110,3 +110,12 @@ th {
   color: var(--accent);
   text-decoration: underline;
 }
+
+.currency-choice {
+  background-color: var(--accent);
+  color: var(--text-primary);
+}
+
+.currency-choice:hover {
+  background-color: var(--text-secondary);
+}

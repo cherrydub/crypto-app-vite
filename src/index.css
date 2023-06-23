@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Eskool";
+  src: url("./fonts/Eskool-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("./fonts/RobotoMono-Regular.ttf") format("truetype");
+}
+
 :root {
   --background: #1d1f21;
   --text-primary: #eee;
@@ -13,7 +23,7 @@
   --table: rgb(29 31 33 / 0.85);
   --nav-background: rgb(29 31 33 / 0.85);
 
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Roboto", Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
