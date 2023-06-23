@@ -6,13 +6,18 @@ import { Coins } from "./components/Coins";
 import { NavBar } from "./components/NavBar";
 import { Coin } from "./routes/Coin";
 import useLocalStorage from "use-local-storage";
-import { Toggle } from "./components/Toggle";
 import { Footer } from "./components/Footer";
 
 function App() {
   const [theme, setTheme] = useLocalStorage("theme" ? "dark" : "light");
   const [displayAmount, setDisplayAmount] = useState(10);
   const [currency, setCurrency] = useState("usd");
+
+  const currencySymbol = {
+    usd: "$",
+    gbp: "£",
+    eur: "€",
+  };
 
   const switchTheme = () => {
     const newTheme = theme === "light" ? "dark" : "light";
@@ -21,7 +26,7 @@ function App() {
 
   const [coins, setCoins] = useState([]);
 
-  const url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=${displayAmount}&page=1&sparkline=false&locale=en`;
+  const url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=${currency}&order=market_cap_desc&per_page=${displayAmount}&page=1&sparkline=false&locale=en`;
 
   useEffect(() => {
     axios
@@ -33,7 +38,7 @@ function App() {
       .catch((err) => {
         console.log("error:", err);
       });
-  }, [displayAmount]);
+  }, [url]);
 
   return (
     <div className="app" id="top" data-theme={theme}>
@@ -59,8 +64,14 @@ function App() {
             />
           }
         />
-        <Route path="/coin" element={<Coin />}>
-          <Route path=":coinId" element={<Coin />} />
+        <Route
+          path="/coin"
+          element={<Coin currency={currency} setCurrency={setCurrency} />}
+        >
+          <Route
+            path=":coinId"
+            element={<Coin currency={currency} setCurrency={setCurrency} />}
+          />
         </Route>
       </Routes>
       <Footer />

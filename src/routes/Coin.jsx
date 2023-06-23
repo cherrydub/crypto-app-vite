@@ -4,12 +4,12 @@ import { useParams } from "react-router-dom";
 import DOMPurify from "dompurify";
 import "./Coin.css";
 
-export const Coin = () => {
+export const Coin = ({ currency, setCurrency }) => {
   const params = useParams();
   const [coin, setCoin] = useState({});
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [currency, setCurrency] = useState("usd");
+  // const [currency, setCurrency] = useState("usd");
 
   const currencySymbol = {
     usd: "$",
@@ -30,7 +30,7 @@ export const Coin = () => {
         setError(err);
         setLoading(false);
       });
-  }, [currency]);
+  }, [url]);
 
   if (loading) {
     return <div>Loading...</div>;

@@ -8,6 +8,37 @@ export const Coins = ({ coins, setDisplayAmount, currency, setCurrency }) => {
   return (
     <>
       <div className="text-right px-4 pt-10">
+        {currency === "usd" ? (
+          <button
+            className="currency-choice"
+            onClick={() => setCurrency("usd")}
+          >
+            usd
+          </button>
+        ) : (
+          <button onClick={() => setCurrency("usd")}>usd</button>
+        )}
+        {currency === "gbp" ? (
+          <button
+            className="currency-choice"
+            onClick={() => setCurrency("gbp")}
+          >
+            gbp
+          </button>
+        ) : (
+          <button onClick={() => setCurrency("gbp")}>gbp</button>
+        )}
+        {currency === "eur" ? (
+          <button
+            className="currency-choice"
+            onClick={() => setCurrency("eur")}
+          >
+            eur
+          </button>
+        ) : (
+          <button onClick={() => setCurrency("eur")}>eur</button>
+        )}
+        {"   "}
         <button className="" onClick={() => setDisplayAmount(10)}>
           10
         </button>
@@ -20,7 +51,7 @@ export const Coins = ({ coins, setDisplayAmount, currency, setCurrency }) => {
           <p>#</p>
           <p className="coin-name">Coin</p>
           <p>Price</p>
-          <p>24hr</p>
+          <p className="">24hr</p>
           <p className="hide-mobile">Volume</p>
           <p className="hide-mobile">Mkt Cap</p>
         </div>
