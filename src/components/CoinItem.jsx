@@ -12,7 +12,7 @@ export const CoinItem = ({ coin, currency, setCurrency }) => {
       <p className="text-primary">{coin.market_cap_rank}</p>
       <div className="img-symbol">
         <img className="" src={coin.image} alt={coin.name} />
-        <p className="font-bold" style={{ color: "var(--text-primary)" }}>
+        <p className="roboto-bold" style={{ color: "var(--text-primary)" }}>
           {coin.symbol.toUpperCase()}
         </p>
       </div>

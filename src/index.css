@@ -12,6 +12,11 @@
   src: url("./fonts/RobotoMono-Regular.ttf") format("truetype");
 }
 
+@font-face {
+  font-family: "Roboto-Bold";
+  src: url("./fonts/RobotoMono-Bold.ttf") format("truetype");
+}
+
 :root {
   --background: #1d1f21;
   --text-primary: #eee;
@@ -194,4 +199,8 @@ a:hover {
 
 .text-secondary {
   color: var(--text-secondary);
+}
+
+.roboto-bold {
+  font-family: "Roboto-bold";
 }

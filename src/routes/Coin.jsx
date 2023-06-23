@@ -84,7 +84,7 @@ export const Coin = ({ currency, setCurrency }) => {
           </div>
         </div>
 
-        <div className="info font-bold">
+        <div className="info roboto-bold">
           <div className="coin-heading">
             {coin.image?.small && <img src={coin.image.small} alt="" />}
             <p>{coin.name}</p>
@@ -241,7 +241,7 @@ export const Coin = ({ currency, setCurrency }) => {
           </div>
           <div className="right">
             <div className="row">
-              <h4 className="font-bold">Market Cap</h4>
+              <h4 className="">Market Cap</h4>
               <p>
                 {currencySymbol[currency]}
                 {coin.market_data?.market_cap?.[currency].toLocaleString() ??

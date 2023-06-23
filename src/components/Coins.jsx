@@ -48,12 +48,12 @@ export const Coins = ({ coins, setDisplayAmount, currency, setCurrency }) => {
 
       <div className="container">
         <div className="heading">
-          <p>#</p>
-          <p className="coin-name">Coin</p>
-          <p>Price</p>
-          <p className="">24hr</p>
-          <p className="hide-mobile">Volume</p>
-          <p className="hide-mobile">Mkt Cap</p>
+          <p className="roboto-bold">#</p>
+          <p className="coin-name roboto-bold">Coin</p>
+          <p className="roboto-bold">Price</p>
+          <p className="roboto-bold">24hr</p>
+          <p className="hide-mobile roboto-bold">Volume</p>
+          <p className="hide-mobile roboto-bold">Mkt Cap</p>
         </div>
         {coins.map((coin) => {
           return (
