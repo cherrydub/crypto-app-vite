@@ -5,11 +5,13 @@
 
 .heading {
   display: flex;
+  border: 1px var(--accent2) dotted;
   justify-content: space-between;
   align-items: center;
   background-color: var(--table);
-  box-shadow: 0px 8px 12px #18191b;
-  border-radius: 8px;
+  box-shadow: 8px 8px var(--accent);
+  /* box-shadow: 0px 8px 12px #18191b; */
+  /* border-radius: 8px; */
   margin: 2rem 1rem;
   padding: 0.7rem 1rem;
   font-weight: 700;
@@ -21,11 +23,12 @@
 
 .coin-row {
   display: flex;
+  border: 1px var(--accent2) dotted;
   justify-content: space-between;
   align-items: center;
   background-color: var(--table);
-  box-shadow: 0px 8px 12px #18191b;
-  border-radius: 8px;
+  box-shadow: 8px 8px var(--accent);
+  /* border-radius: 8px; */
   margin: 2rem 1rem;
   padding: 0.7rem 1rem;
 }
