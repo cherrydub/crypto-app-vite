@@ -5,8 +5,9 @@
   display: flex;
   flex-direction: column;
   background-color: var(--table);
-  box-shadow: 0px 0px 12px #18191b;
-  border-radius: 8px;
+  border: 1px var(--accent2) dotted;
+  box-shadow: 8px 8px var(--accent);
+  /* border-radius: 8px; */
 }
 
 .rank {
@@ -14,7 +15,7 @@
 }
 
 .rank-btn {
-  border: 1px solid var(--accent);
+  border: 1px dotted var(--accent);
   box-shadow: 0px 0px 8px var(--accent);
   background-color: var(--accent);
   border-radius: 8px;
@@ -113,6 +114,8 @@ th {
 
 .currency-choice {
   background-color: var(--accent);
+  border: 1px var(--accent2) dotted;
+  box-shadow: 8px 8px var(--accent);
   color: var(--text-primary);
 }
 
