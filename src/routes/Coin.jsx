@@ -62,7 +62,7 @@ export const Coin = ({ currency, setCurrency }) => {
 
             {currency === "gbp" ? (
               <button
-                className="bg-black text-white"
+                className="currency-choice"
                 onClick={() => setCurrency("gbp")}
               >
                 gbp
@@ -73,7 +73,7 @@ export const Coin = ({ currency, setCurrency }) => {
 
             {currency === "eur" ? (
               <button
-                className="bg-black text-white"
+                className="currency-choice"
                 onClick={() => setCurrency("eur")}
               >
                 eur
